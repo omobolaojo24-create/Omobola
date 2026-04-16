@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Omobola Olamide Ojo — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --navy: #0f2547;
+    --navy-mid: #1b3a6b;
+    --navy-light: #2a5298;
+    --blue: #3b7dd8;
+    --sky: #6aaee8;
+    --ice: #d6e8f8;
+    --ice-soft: #eef5fc;
+    --gold: #c9a84c;
+    --white: #ffffff;
+    --off-white: #f7fafd;
+    --text: #1a2a3a;
+    --muted: #5a7090;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--off-white);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(15,37,71,0.97);
+    backdrop-filter: blur(10px);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px; height: 60px;
+    border-bottom: 1px solid rgba(107,174,232,0.2);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    color: var(--white); font-size: 1.1rem; font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  .nav-logo span { color: var(--sky); }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.7); text-decoration: none;
+    font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em;
+    text-transform: uppercase; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--sky); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 50%, #1a4a8a 100%);
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 100px 60px 60px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 80% 20%, rgba(59,125,216,0.2) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(107,174,232,0.12) 0%, transparent 60%);
+  }
+  .hero-grid {
+    position: absolute; inset: 0; opacity: 0.04;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 760px; }
+  .hero-eyebrow {
+    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--sky);
+    margin-bottom: 20px; display: flex; align-items: center; gap: 12px;
+  }
+  .hero-eyebrow::before {
+    content: ''; display: block; width: 40px; height: 2px; background: var(--sky);
+  }
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 900; color: var(--white);
+    line-height: 1.05; margin-bottom: 16px;
+    letter-spacing: -0.02em;
+  }
+  .hero-name .accent { color: var(--sky); }
+  .hero-title {
+    font-size: 1.1rem; font-weight: 300; color: rgba(255,255,255,0.75);
+    margin-bottom: 32px; line-height: 1.6;
+  }
+  .hero-title strong { color: var(--ice); font-weight: 600; }
+  .hero-bio {
+    font-size: 0.95rem; color: rgba(255,255,255,0.6);
+    max-width: 580px; line-height: 1.8; margin-bottom: 48px;
+  }
+  .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--blue); color: white;
+    padding: 14px 32px; border-radius: 4px;
+    font-size: 0.875rem; font-weight: 600;
+    text-decoration: none; letter-spacing: 0.03em;
+    transition: background 0.2s, transform 0.15s;
+    border: none; cursor: pointer;
+  }
+  .btn-primary:hover { background: var(--sky); transform: translateY(-2px); }
+  .btn-outline {
+    border: 1.5px solid rgba(107,174,232,0.5); color: var(--sky);
+    padding: 14px 32px; border-radius: 4px;
+    font-size: 0.875rem; font-weight: 600;
+    text-decoration: none; letter-spacing: 0.03em;
+    transition: all 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--sky); background: rgba(107,174,232,0.08); }
+
+  .hero-stats {
+    position: absolute; right: 60px; bottom: 60px;
+    display: flex; gap: 48px; z-index: 1;
+  }
+  .stat { text-align: center; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem; font-weight: 900; color: var(--white);
+    line-height: 1; display: block;
+  }
+  .stat-num span { color: var(--sky); }
+  .stat-label {
+    font-size: 0.72rem; color: rgba(255,255,255,0.5);
+    text-transform: uppercase; letter-spacing: 0.1em;
+    margin-top: 6px; display: block;
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 90px 60px; }
+  .section-label {
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--blue);
+    margin-bottom: 10px; display: flex; align-items: center; gap: 12px;
+  }
+  .section-label::before { content: ''; width: 32px; height: 2px; background: var(--blue); display: block; }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 700; color: var(--navy);
+    margin-bottom: 48px; line-height: 1.2;
+  }
+
+  /* ── SKILLS ── */
+  .skills-section { background: var(--white); }
+  .skills-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  }
+  .skill-card {
+    border: 1px solid var(--ice);
+    border-radius: 8px; padding: 28px 24px;
+    background: var(--off-white);
+    transition: all 0.25s; position: relative; overflow: hidden;
+  }
+  .skill-card::before {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 4px; height: 100%; background: var(--blue);
+    transform: scaleY(0); transform-origin: bottom;
+    transition: transform 0.25s;
+  }
+  .skill-card:hover { border-color: var(--blue); transform: translateY(-4px); box-shadow: 0 12px 32px rgba(27,58,107,0.1); }
+  .skill-card:hover::before { transform: scaleY(1); }
+  .skill-icon { font-size: 1.8rem; margin-bottom: 14px; display: block; }
+  .skill-name { font-weight: 700; color: var(--navy); font-size: 1rem; margin-bottom: 8px; }
+  .skill-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .tag {
+    background: var(--ice); color: var(--navy-mid);
+    padding: 3px 10px; border-radius: 20px;
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.02em;
+  }
+
+  /* ── EXPERIENCE ── */
+  .experience-section { background: var(--off-white); }
+  .timeline { position: relative; padding-left: 32px; }
+  .timeline::before {
+    content: ''; position: absolute; left: 0; top: 8px; bottom: 8px;
+    width: 2px; background: linear-gradient(to bottom, var(--blue), var(--ice));
+  }
+  .timeline-item { position: relative; margin-bottom: 52px; }
+  .timeline-dot {
+    position: absolute; left: -40px; top: 6px;
+    width: 16px; height: 16px; border-radius: 50%;
+    background: var(--blue); border: 3px solid var(--white);
+    box-shadow: 0 0 0 3px var(--blue);
+  }
+  .timeline-period {
+    font-size: 0.78rem; font-weight: 700; color: var(--blue);
+    letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px;
+  }
+  .timeline-role {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; font-weight: 700; color: var(--navy); margin-bottom: 4px;
+  }
+  .timeline-company { font-size: 0.9rem; color: var(--muted); margin-bottom: 16px; }
+  .timeline-points { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .timeline-points li {
+    font-size: 0.88rem; color: var(--text); line-height: 1.65;
+    padding-left: 18px; position: relative;
+  }
+  .timeline-points li::before {
+    content: '▪'; position: absolute; left: 0; color: var(--sky); font-size: 0.7rem; top: 3px;
+  }
+
+  /* ── ACHIEVEMENTS ── */
+  .achievements-section { background: var(--navy); }
+  .achievements-section .section-label { color: var(--sky); }
+  .achievements-section .section-label::before { background: var(--sky); }
+  .achievements-section .section-title { color: var(--white); }
+  .achievements-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .achievement-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(107,174,232,0.2);
+    border-radius: 8px; padding: 32px 28px;
+    transition: all 0.25s;
+  }
+  .achievement-card:hover {
+    background: rgba(59,125,216,0.12);
+    border-color: rgba(107,174,232,0.5);
+    transform: translateY(-3px);
+  }
+  .achievement-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem; font-weight: 900;
+    color: var(--sky); line-height: 1; margin-bottom: 8px;
+  }
+  .achievement-title { font-weight: 700; color: var(--white); font-size: 0.95rem; margin-bottom: 8px; }
+  .achievement-desc { font-size: 0.84rem; color: rgba(255,255,255,0.55); line-height: 1.65; }
+
+  /* ── TOOLS ── */
+  .tools-section { background: var(--white); }
+  .tools-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .tool-pill {
+    border: 1.5px solid var(--ice);
+    border-radius: 8px; padding: 20px 16px;
+    text-align: center; transition: all 0.2s;
+    background: var(--off-white);
+  }
+  .tool-pill:hover { border-color: var(--blue); background: var(--ice-soft); transform: translateY(-3px); }
+  .tool-emoji { font-size: 1.6rem; display: block; margin-bottom: 8px; }
+  .tool-name { font-size: 0.82rem; font-weight: 700; color: var(--navy); }
+  .tool-level { font-size: 0.72rem; color: var(--muted); margin-top: 4px; }
+  .level-bar {
+    height: 3px; background: var(--ice); border-radius: 2px;
+    margin-top: 10px; overflow: hidden;
+  }
+  .level-fill { height: 100%; background: var(--blue); border-radius: 2px; }
+
+  /* ── CONTACT ── */
+  .contact-section {
+    background: linear-gradient(135deg, var(--navy-mid) 0%, var(--navy) 100%);
+    text-align: center; padding: 90px 40px;
+  }
+  .contact-section .section-label { justify-content: center; }
+  .contact-section .section-label::before { display: none; }
+  .contact-section .section-title { color: var(--white); margin-bottom: 16px; }
+  .contact-subtitle {
+    color: rgba(255,255,255,0.6); max-width: 480px;
+    margin: 0 auto 48px; font-size: 0.95rem; line-height: 1.7;
+  }
+  .contact-cards { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 40px; }
+  .contact-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(107,174,232,0.25);
+    border-radius: 8px; padding: 20px 28px;
+    color: white; text-decoration: none; transition: all 0.2s;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .contact-card:hover { background: rgba(59,125,216,0.2); border-color: var(--sky); }
+  .contact-card-icon { font-size: 1.3rem; }
+  .contact-card-info { text-align: left; }
+  .contact-card-label { font-size: 0.7rem; color: var(--sky); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; }
+  .contact-card-value { font-size: 0.9rem; color: white; margin-top: 2px; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy); padding: 24px 60px;
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid rgba(107,174,232,0.1);
+  }
+  footer p { font-size: 0.78rem; color: rgba(255,255,255,0.3); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up { animation: fadeUp 0.7s ease forwards; opacity: 0; }
+  .delay-1 { animation-delay: 0.15s; }
+  .delay-2 { animation-delay: 0.3s; }
+  .delay-3 { animation-delay: 0.45s; }
+  .delay-4 { animation-delay: 0.6s; }
+
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-links { gap: 18px; }
+    section, .hero { padding: 70px 24px; }
+    .hero-stats { position: static; margin-top: 48px; justify-content: flex-start; }
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    .achievements-grid { grid-template-columns: 1fr; }
+    .tools-grid { grid-template-columns: repeat(2, 1fr); }
+    footer { flex-direction: column; gap: 8px; text-align: center; }
+  }
+  @media (max-width: 600px) {
+    .skills-grid { grid-template-columns: 1fr; }
+    .tools-grid { grid-template-columns: repeat(2, 1fr); }
+    .nav-links { display: none; }
+    .hero-stats { gap: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Omobola <span>Ojo</span></div>
+  <ul class="nav-links">
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#achievements">Achievements</a></li>
+    <li><a href="#tools">Tools</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow fade-up">Open to Remote Opportunities</div>
+    <h1 class="hero-name fade-up delay-1">Omobola<br/><span class="accent">Olamide Ojo</span></h1>
+    <p class="hero-title fade-up delay-2">
+      <strong>Sales Data Analyst</strong> &nbsp;·&nbsp; <strong>Data Entry Specialist</strong> &nbsp;·&nbsp; <strong>Sales Operations Coordinator</strong>
+    </p>
+    <p class="hero-bio fade-up delay-3">
+      5+ years turning raw field data into actionable business intelligence. I manage high-volume national data pipelines, build Excel reporting systems, and oversee sales performance across distributed teams — all with precision and zero missed deadlines.
+    </p>
+    <div class="hero-cta fade-up delay-4">
+      <a href="#contact" class="btn-primary">Get In Touch</a>
+      <a href="#experience" class="btn-outline">View Experience</a>
+    </div>
+  </div>
+  <div class="hero-stats fade-up delay-4">
+    <div class="stat">
+      <span class="stat-num">5<span>+</span></span>
+      <span class="stat-label">Years Experience</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">42<span>+</span></span>
+      <span class="stat-label">Team Members Managed</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">6</span>
+      <span class="stat-label">Geopolitical Zones</span>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills-section" id="skills">
+  <div class="section-label">What I Do</div>
+  <h2 class="section-title">Core Skills & Expertise</h2>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <span class="skill-icon">📊</span>
+      <div class="skill-name">Sales Data Analysis</div>
+      <div class="skill-desc">Building pivot table dashboards, year-on-year trend analysis, and month-on-month growth comparisons to support commercial decision-making.</div>
+      <div class="skill-tags"><span class="tag">Pivot Tables</span><span class="tag">Trend Analysis</span><span class="tag">Excel</span></div>
+    </div>
+    <div class="skill-card">
+      <span class="skill-icon">⌨️</span>
+      <div class="skill-name">High-Volume Data Entry</div>
+      <div class="skill-desc">Daily processing of field sales submissions from 30+ reps across Nigeria — accurate, verified, and delivered on time every working day for 5+ years.</div>
+      <div class="skill-tags"><span class="tag">Accuracy</span><span class="tag">Speed</span><span class="tag">Zero Backlog</span></div>
+    </div>
+    <div class="skill-card">
+      <span class="skill-icon">🗃️</span>
+      <div class="skill-name">Database & Records Management</div>
+      <div class="skill-desc">Organising and maintaining structured filing systems for primary sales, secondary sales, stock balance, and price master records for fast retrieval.</div>
+      <div class="skill-tags"><span class="tag">Data Integrity</span><span class="tag">Organisation</span><span class="tag">Retrieval</span></div>
+    </div>
+    <div class="skill-card">
+      <span class="skill-icon">✅</span>
+      <div class="skill-name">Data Verification & QC</div>
+      <div class="skill-desc">Reviewing all entries for deficiencies, cross-checking against source documents, and correcting incompatibilities before committing to master databases.</div>
+      <div class="skill-tags"><span class="tag">Error Detection</span><span class="tag">Quality Control</span><span class="tag">Validation</span></div>
+    </div>
+    <div class="skill-card">
+      <span class="skill-icon">🎯</span>
+      <div class="skill-name">Sales Operations & Reporting</div>
+      <div class="skill-desc">Setting and evaluating sales targets for 12+ managers and 30+ reps, collating pan-Nigeria returns, and producing management-ready weekly and monthly reports.</div>
+      <div class="skill-tags"><span class="tag">Targets</span><span class="tag">Performance</span><span class="tag">Reporting</span></div>
+    </div>
+    <div class="skill-card">
+      <span class="skill-icon">🔒</span>
+      <div class="skill-name">Data Security & Confidentiality</div>
+      <div class="skill-desc">Handling sensitive commercial data — pricing, personnel figures, and performance metrics — with strict confidentiality and regular backup protocols.</div>
+      <div class="skill-tags"><span class="tag">Confidentiality</span><span class="tag">Backups</span><span class="tag">Security</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience-section" id="experience">
+  <div class="section-label">Career History</div>
+  <h2 class="section-title">Professional Experience</h2>
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-period">October 2019 – Present</div>
+      <div class="timeline-role">Data Entry Specialist & Sales Data Analyst</div>
+      <div class="timeline-company">Sonia Food Industries Limited — Ogun State, Nigeria</div>
+      <ul class="timeline-points">
+        <li>Collected and entered daily primary and secondary sales data from 30+ field reps across Nigeria's 6 geopolitical zones into Excel databases — same-day, every working day, for 5+ years.</li>
+        <li>Verified all entries against source documents, reviewed for deficiencies, and corrected incompatibilities before committing to master records.</li>
+        <li>Built pivot table dashboards tracking sales trends, year-on-year performance, and month-on-month growth for senior management.</li>
+        <li>Oversaw daily, weekly, and monthly sales returns from 12+ sales managers; set performance targets and evaluated results.</li>
+        <li>Maintained stock balance reports, price master updates, and structured filing systems for efficient data retrieval.</li>
+        <li>Designed standardised Excel entry templates adopted company-wide, reducing errors across all regional submissions.</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-period">June 2017 – September 2019</div>
+      <div class="timeline-role">Front Desk Officer / Administrative Assistant</div>
+      <div class="timeline-company">Gtext Media and Investment — Lagos, Nigeria</div>
+      <ul class="timeline-points">
+        <li>Managed all inbound and outbound correspondence — calls, emails, and mail — with accuracy and professionalism.</li>
+        <li>Maintained inventory records for company assets and managed accurate staff movement documentation.</li>
+        <li>Operated independently to ensure smooth front-office operations while meeting daily administrative deadlines.</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-period">2016 – 2017</div>
+      <div class="timeline-role">NYSC Corps Member — Maintenance Department</div>
+      <div class="timeline-company">National Judicial Institute — Abuja, Nigeria</div>
+      <ul class="timeline-points">
+        <li>Completed mandatory national service at a federal institution, gaining exposure to formal institutional operations.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section class="achievements-section" id="achievements">
+  <div class="section-label">Track Record</div>
+  <h2 class="section-title">Key Achievements</h2>
+  <div class="achievements-grid">
+    <div class="achievement-card">
+      <div class="achievement-num">5+ Yrs</div>
+      <div class="achievement-title">Zero Missed Daily Deadlines</div>
+      <div class="achievement-desc">Processed and submitted complete sales data reports every single working day for over five years — no gaps, no backlogs, no exceptions.</div>
+    </div>
+    <div class="achievement-card">
+      <div class="achievement-num">42</div>
+      <div class="achievement-title">National Team Data Pipeline</div>
+      <div class="achievement-desc">Single-handedly managed the data flow from a 42-person national sales team spanning all 6 Nigerian geopolitical zones.</div>
+    </div>
+    <div class="achievement-card">
+      <div class="achievement-num">1st</div>
+      <div class="achievement-title">Built the Company's First Trend Dashboards</div>
+      <div class="achievement-desc">Created pivot table dashboards that gave management their first-ever visual year-on-year and month-on-month sales comparisons.</div>
+    </div>
+    <div class="achievement-card">
+      <div class="achievement-num">↓ Errors</div>
+      <div class="achievement-title">Company-Wide Template Adoption</div>
+      <div class="achievement-desc">Designed standardised Excel data entry templates adopted across the entire national sales team, cutting manual errors and improving reporting consistency.</div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section class="tools-section" id="tools">
+  <div class="section-label">Tech Stack</div>
+  <h2 class="section-title">Tools & Technologies</h2>
+  <div class="tools-grid">
+    <div class="tool-pill">
+      <span class="tool-emoji">📗</span>
+      <div class="tool-name">Microsoft Excel</div>
+      <div class="tool-level">Advanced</div>
+      <div class="level-bar"><div class="level-fill" style="width:95%"></div></div>
+    </div>
+    <div class="tool-pill">
+      <span class="tool-emoji">📘</span>
+      <div class="tool-name">Microsoft Word</div>
+      <div class="tool-level">Advanced</div>
+      <div class="level-bar"><div class="level-fill" style="width:90%"></div></div>
+    </div>
+    <div class="tool-pill">
+      <span class="tool-emoji">🗄️</span>
+      <div class="tool-name">Microsoft Access</div>
+      <div class="tool-level">Proficient</div>
+      <div class="level-bar"><div class="level-fill" style="width:78%"></div></div>
+    </div>
+    <div class="tool-pill">
+      <span class="tool-emoji">📧</span>
+      <div class="tool-name">Microsoft Outlook</div>
+      <div class="tool-level">Proficient</div>
+      <div class="level-bar"><div class="level-fill" style="width:85%"></div></div>
+    </div>
+    <div class="tool-pill">
+      <span class="tool-emoji">📊</span>
+      <div class="tool-name">PowerPoint</div>
+      <div class="tool-level">Proficient</div>
+      <div class="level-bar"><div class="level-fill" style="width:80%"></div></div>
+    </div>
+    <div class="tool-pill">
+      <span class="tool-emoji">📈</span>
+      <div class="tool-name">Power BI</div>
+      <div class="tool-level">In Progress</div>
+      <div class="level-bar"><div class="level-fill" style="width:35%"></div></div>
+    </div>
+    <div class="tool-pill">
+      <span class="tool-emoji">🔄</span>
+      <div class="tool-name">Pivot Tables</div>
+      <div class="tool-level">Expert</div>
+      <div class="level-bar"><div class="level-fill" style="width:95%"></div></div>
+    </div>
+    <div class="tool-pill">
+      <span class="tool-emoji">💾</span>
+      <div class="tool-name">Data Backup Systems</div>
+      <div class="tool-level">Proficient</div>
+      <div class="level-bar"><div class="level-fill" style="width:82%"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="section-label">Let's Connect</div>
+  <h2 class="section-title">Available for Remote Roles</h2>
+  <p class="contact-subtitle">
+    I am actively seeking remote positions in Sales Data Analysis, Data Entry, or Sales Operations. Based in Spain, available to work across time zones.
+  </p>
+  <div class="contact-cards">
+    <a href="mailto:omobolaojo24@gmail.com" class="contact-card">
+      <span class="contact-card-icon">✉️</span>
+      <div class="contact-card-info">
+        <div class="contact-card-label">Email</div>
+        <div class="contact-card-value">omobolaojo24@gmail.com</div>
+      </div>
+    </a>
+    <a href="tel:+34655117093" class="contact-card">
+      <span class="contact-card-icon">📞</span>
+      <div class="contact-card-info">
+        <div class="contact-card-label">Phone / WhatsApp</div>
+        <div class="contact-card-value">+34 655 117 093</div>
+      </div>
+    </a>
+    <div class="contact-card">
+      <span class="contact-card-icon">📍</span>
+      <div class="contact-card-info">
+        <div class="contact-card-label">Location</div>
+        <div class="contact-card-value">Las Palmas de Gran Canaria, Spain</div>
+      </div>
+    </div>
+  </div>
+  <a href="mailto:omobolaojo24@gmail.com" class="btn-primary">Send Me a Message</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Omobola Olamide Ojo — All rights reserved.</p>
+  <p>Remote Data Analyst · Las Palmas de Gran Canaria, Spain</p>
+</footer>
+
+</body>
+</html>
